@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [react(),
      tailwindcss(),
     ],
-    base:'/<reg-task>/'
+    base:'/<dashboard-task>/'
 })
 
