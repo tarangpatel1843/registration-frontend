@@ -49,6 +49,7 @@ const Login = () => {
           onChange={fun}
           value={form.email}
           required
+          autoComplete="username"
           className="w-full mb-4 p-2 border border-gray-300 rounded"
         />
 
