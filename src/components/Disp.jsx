@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Disp = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +14,7 @@ const Disp = () => {
     const fetchUsers = async () => {
       try {
         let token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/get", {
+        const res = await axios.get(`${BASE_URL}/get`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -37,7 +38,7 @@ const Disp = () => {
 
   const handleDelete = (email) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      axios.delete(`http://localhost:5000/del/${email}`)
+      axios.delete(`${BASE_URL}/del/${email}`)
         .then(() => setUsers(prev => prev.filter(item => item.email !== email)))
         .catch(err => console.log(err));
     }

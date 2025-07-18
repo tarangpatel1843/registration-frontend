@@ -15,7 +15,7 @@ const Edit = () => {
 
   const upd = () => {
     axios
-      .put(`http://localhost:5000/edit/${email}`, data)
+      .put(`${BASE_URL}/edit/${email}`, data)
       .then((res) => {
         setMsg(res.data.msg || "Updated successfully");
         setTimeout(() => navigate("/disp"), 1000); // go back to dashboard
@@ -24,7 +24,7 @@ const Edit = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/get/${email}`)
+    axios.get(`${BASE_URL}/get/${email}`)
       .then((res) => {
         console.log("Fetched user:", res.data);
         const { name = "", dob = "", email = "", role = "" } = res.data;

@@ -19,7 +19,7 @@ const Register = () => {
             return setMsg("All fields are required");
         }
         try {
-            let res = await axios.post("http://localhost:5000/register", data);
+            let res = await axios.post(`{$BASE_URL}/register`, data);
             setMsg(res.data.msg);
             setData({ name: "", dob: "", email: "", password: "" });
             navigate('/login');
