@@ -19,7 +19,7 @@ const Register = () => {
             return setMsg("All fields are required");
         }
         try {
-            let res = await axios.post(`{$BASE_URL}/register`, data);
+            let res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/register`, data);
             setMsg(res.data.msg);
             setData({ name: "", dob: "", email: "", password: "" });
             navigate('/login');

@@ -13,7 +13,7 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault()
-    axios.post(`${BASE_URL}/login`, form)
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/login`, form)
       .then(res => {
         if (res.data.token) {
           localStorage.setItem('token', res.data.token)
